@@ -11,4 +11,6 @@ public interface UsersRepository {
 
 	List<User> findAllUsers();
 
+	User updateUser(User user);
+
 }

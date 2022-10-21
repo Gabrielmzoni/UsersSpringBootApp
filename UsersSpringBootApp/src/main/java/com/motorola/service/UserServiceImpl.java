@@ -30,6 +30,13 @@ public class UserServiceImpl implements UserService {
 		
 		return usersRepository.findAllUsers();
 	}
+
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return usersRepository.updateUser(user);
+	}
 	
 	
 

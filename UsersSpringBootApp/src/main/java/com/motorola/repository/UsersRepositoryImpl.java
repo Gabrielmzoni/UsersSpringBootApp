@@ -36,6 +36,24 @@ public class UsersRepositoryImpl implements UsersRepository {
 	public List<User> findAllUsers(){
 		return users;
 	}
+
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		
+		for(User tempUser: users) {
+			if (tempUser.getId() == user.getId()) {
+				users.remove(tempUser);
+				users.add(user);
+				break;
+			}
+			
+		}
+		
+		return user;
+		
+	}
 	
 	
 	
