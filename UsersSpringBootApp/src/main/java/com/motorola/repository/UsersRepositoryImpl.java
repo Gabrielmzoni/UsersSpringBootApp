@@ -3,6 +3,7 @@ package com.motorola.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.aop.ThrowsAdvice;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -53,6 +54,24 @@ public class UsersRepositoryImpl implements UsersRepository {
 		
 		return user;
 		
+	}
+
+
+	@Override
+	public void deleteUser(Long id) {
+		
+		boolean userFound = false;
+		
+		for(User tempUser: users) {
+			if (tempUser.getId() == id) {
+				users.remove(tempUser);
+				userFound = true;
+				break;
+			}
+			
+		}
+		
+			
 	}
 	
 	
