@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
 		
 		return usersRepository.findAllUsers();
 	}
-
-
+	
+	
 	@Override
 	public User updateUser(User user) {
 		// TODO Auto-generated method stub
@@ -44,6 +44,13 @@ public class UserServiceImpl implements UserService {
 		
 		usersRepository.deleteUser(id);
 		
+	}
+
+
+	@Override
+	public User findUserByID(Long id) {
+		// TODO Auto-generated method stub
+		return usersRepository.findUserById(id);
 	}
 	
 	

@@ -40,6 +40,13 @@ public class UserResource {
 		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 	
+	@GetMapping("/find/{id}")
+	public ResponseEntity<User> getUserbyId(@PathVariable("id") Long id){
+		User user = userService.findUserByID(id);
+		
+		return new ResponseEntity<>(user, HttpStatus.OK);
+	}
+	
 	@PostMapping("/add")
 	public ResponseEntity<User> addUser(@RequestBody User user ){
 		User newUser = userService.addUser(user);

@@ -18,6 +18,9 @@ public class UsersRepositoryImpl implements UsersRepository {
 	
 	public UsersRepositoryImpl() {
 		users = new ArrayList<>();
+		addUser( new User("Gabriel", "Manzoni", "gabrielmzoni@gmail.com"));
+		addUser( new User("Natalia", "Vicentino", "natalia@gmail.com"));
+		addUser( new User("Francisco", "Coco", "natalia@gmail.com"));
 	}
 	
 	
@@ -71,7 +74,30 @@ public class UsersRepositoryImpl implements UsersRepository {
 			
 		}
 		
+		if(!userFound)
+			throw new IllegalStateException("Unable to delete User with id "+ id + " not found" );
+		
 			
+	}
+
+
+	@Override
+	public User findUserById(Long id) {
+		// TODO Auto-generated method stub
+		boolean userFound = false;
+		
+		for(User tempUser: users) {
+			if (tempUser.getId() == id) {
+				
+				userFound = true;
+				return tempUser;
+			}
+			
+		}
+		
+		if(!userFound)
+			throw new IllegalStateException("User with id "+ id + " not found" );
+		return null;
 	}
 	
 	
